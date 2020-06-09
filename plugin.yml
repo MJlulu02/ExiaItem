@@ -1,0 +1,6 @@
+name: ExiaItem
+version: 1.0
+author: MJlulu02
+main: Plugins.Exia.PluginsManageur.Main
+commands:
+  item:
