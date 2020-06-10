@@ -3,6 +3,7 @@ package Plugins.Exia.PluginsManageur;
 import java.util.Arrays;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -42,15 +43,47 @@ public class Menu implements Listener {
 				ItemStack apple = new ItemStack(Material.GOLDEN_APPLE, 1);
 				ItemMeta appleM = apple.getItemMeta();
 				appleM.setDisplayName("§d§k!!§5Mythique§r§d§k!!§r §f§l» §5Osmanthe Apple");
-				appleM.setLore(Arrays.asList(" ","§f§l» §8Miam :)"));
+				appleM.setLore(Arrays.asList(" ", "§6§nCaractéristique de l'item §7:", "§eDonne un effet de Régénération 3,", "§eAbsorption 2", " ","§f§l» §8Miam :)", "§8[ §7Cooldown : 40 secondes §8]"));
 				apple.setItemMeta(appleM);
 				
+				ItemStack apero = new ItemStack(Material.COOKIE, 1);
+				ItemMeta aperoM = apero.getItemMeta();
+				aperoM.setDisplayName("§e§k!!§6Limiter§e§k!!§r §f§l» §6Gato Apèro");
+				aperoM.setLore(Arrays.asList(" ", "§f§l» §8De la joie, de la bonne humeur, mangez des Gato Apèro !", " ", "§8Ps §7: §8OxiGirl en raffole"));
+				apero.setItemMeta(aperoM);
 				
+				ItemStack block_osm = new ItemStack(Material.BRICK, 1);
+				ItemMeta block_osmM = block_osm.getItemMeta();
+				block_osmM.setDisplayName("§b§k!!§9Rare§b§k!!§r §f§l» §9Osmanthe Block");
+				block_osmM.setLore(Arrays.asList(" ", "§f§l» §8Ce Block d'Osmanthe est fabriqué à partir de l'ingot d'Osmanthe"));
+				block_osm.setItemMeta(block_osmM);
 				
-				Main.instance.DiversInventory.setItem(2, ingot);
-				Main.instance.DiversInventory.setItem(3, apple);
+				ItemStack ang_buck = new ItemStack(Material.WATER_BUCKET, 1);
+				ItemMeta ang_buckM = ang_buck.getItemMeta();
+				ang_buckM.setDisplayName("§e§k!!§6Légendaire§e§k!!§r §f§l» §6Angelique Osmanthe Water Bucket");
+				ang_buckM.setLore(Arrays.asList(" ","§f§l» §8Source d'eau magique et inépuisable"));
+				ang_buck.setItemMeta(ang_buckM);
+				
+				ItemStack retour = new ItemStack(Material.ARROW, 1);
+				ItemMeta retourM = retour.getItemMeta();
+				retourM.setDisplayName("§f§l» §4Retour");
+				retour.setItemMeta(retourM);
+
+				ItemStack right = new ItemStack(Material.REDSTONE, 1);
+				ItemMeta rightM = right.getItemMeta();
+				rightM.setDisplayName("§f§l» §9Suivant");
+				rightM.addEnchant(Enchantment.DURABILITY, 1, true);
+				right.setItemMeta(rightM);
+				
+				Main.instance.DiversInventory.setItem(0, retour);
 				Main.instance.DiversInventory.setItem(1, vitre);
+				Main.instance.DiversInventory.setItem(2, ingot);
+				Main.instance.DiversInventory.setItem(3, block_osm);
+				Main.instance.DiversInventory.setItem(4, apple);
+				Main.instance.DiversInventory.setItem(5, apero);
+				Main.instance.DiversInventory.setItem(6, ang_buck);
 				Main.instance.DiversInventory.setItem(7, vitre);
+				Main.instance.DiversInventory.setItem(8, right);
 				
 				p.openInventory(Main.instance.DiversInventory);
 			}
@@ -60,6 +93,12 @@ public class Menu implements Listener {
 		
 		if (inv.getName().equalsIgnoreCase("§2§l» §aDivers")) {
 			e.setCancelled(true);
+			
+			if (it.getType() == Material.ARROW && it.getItemMeta().getDisplayName().equalsIgnoreCase("§f§l» §4Retour")) {
+				p.closeInventory();
+				
+				p.openInventory(Main.instance.ItemInventory);
+			}
 			
 			if (it.getType() == Material.CLAY_BRICK && it.getItemMeta().getDisplayName().equalsIgnoreCase("§2§k!!§aAtypique§r§2§k!!§r §f§l» §aOsmanthe Ingot")) {
 				p.closeInventory();
@@ -80,12 +119,50 @@ public class Menu implements Listener {
 				ItemStack apple = new ItemStack(Material.GOLDEN_APPLE, 1);
 				ItemMeta appleM = apple.getItemMeta();
 				appleM.setDisplayName("§d§k!!§5Mythique§r§d§k!!§r §f§l» §5Osmanthe Apple");
-				appleM.setLore(Arrays.asList(" ","§f§l» §8Miam :)"));
+				appleM.setLore(Arrays.asList(" ", "§6§nCaractéristique de l'item §7:", "§eDonne un effet de Régénération 3,", "§eAbsorption 2", " ","§f§l» §8Miam :)", "§8[ §7Cooldown : 40 secondes §8]"));
 				apple.setItemMeta(appleM);
 				
 				p.getInventory().addItem(apple);
 			}
 			
+			if (it.getType() == Material.COOKIE && it.getItemMeta().getDisplayName().equalsIgnoreCase("§e§k!!§6Limiter§e§k!!§r §f§l» §6Gato Apèro")) {
+				p.closeInventory();
+				
+				ItemStack apero = new ItemStack(Material.COOKIE, 1);
+				ItemMeta aperoM = apero.getItemMeta();
+				aperoM.setDisplayName("§e§k!!§6Limiter§e§k!!§r §f§l» §6Gato Apèro");
+				aperoM.setLore(Arrays.asList(" ", "§f§l» §8De la joie, de la bonne humeur, mangez des Gato Apèro !", " ", "§8Ps §7: §8OxiGirl en raffole"));
+				apero.setItemMeta(aperoM);
+				
+				
+				p.getInventory().addItem(apero);
+			}
+			
+			if (it.getType() == Material.BRICK && it.getItemMeta().getDisplayName().equalsIgnoreCase("§b§k!!§9Rare§b§k!!§r §f§l» §9Osmanthe Block")) {
+				p.closeInventory();
+				
+				ItemStack block_osm = new ItemStack(Material.BRICK, 1);
+				ItemMeta block_osmM = block_osm.getItemMeta();
+				block_osmM.setDisplayName("§b§k!!§9Rare§b§k!!§r §f§l» §9Osmanthe Block");
+				block_osmM.setLore(Arrays.asList(" ", "§f§l» §8Ce Block d'Osmanthe est fabriqué à partir de l'ingot d'Osmanthe"));
+				block_osm.setItemMeta(block_osmM);
+				
+				
+				p.getInventory().addItem(block_osm);
+			}
+			
+			if (it.getType() == Material.WATER_BUCKET && it.getItemMeta().getDisplayName().equalsIgnoreCase("§e§k!!§6Légendaire§e§k!!§r §f§l» §6Angelique Osmanthe Water Bucket")) {
+				p.closeInventory();
+				
+				ItemStack ang_buck = new ItemStack(Material.WATER_BUCKET, 1);
+				ItemMeta ang_buckM = ang_buck.getItemMeta();
+				ang_buckM.setDisplayName("§e§k!!§6Légendaire§e§k!!§r §f§l» §6Angelique Osmanthe Water Bucket");
+				ang_buckM.setLore(Arrays.asList(" ","§f§l» §8Source d'eau magique et inépuisable"));
+				ang_buck.setItemMeta(ang_buckM);
+				
+				
+				p.getInventory().addItem(ang_buck);
+			}
 			
 		}
 	}
