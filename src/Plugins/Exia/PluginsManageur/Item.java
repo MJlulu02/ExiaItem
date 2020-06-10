@@ -1,27 +1,19 @@
 package Plugins.Exia.PluginsManageur;
 
-<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Random;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
-=======
-import org.bukkit.Material;
->>>>>>> master
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
-<<<<<<< HEAD
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-=======
-import org.bukkit.inventory.ItemStack;
->>>>>>> master
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -29,13 +21,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class Item implements Listener {
 
 	public int time = 40;
-<<<<<<< HEAD
 	public int gato_time = 90;
 	public int ang_time = 4;
 
-=======
-	
->>>>>>> master
 	@EventHandler
 	public void oncousum(PlayerItemConsumeEvent e) {
 		Player p = e.getPlayer();
@@ -44,7 +32,6 @@ public class Item implements Listener {
 		if (item == null || item.getItemMeta() == null)
 			return;
 
-<<<<<<< HEAD
 		if (item.getType() == Material.GOLDEN_APPLE) {
 
 			if (item.getItemMeta().getDisplayName()
@@ -138,54 +125,6 @@ public class Item implements Listener {
 					}
 				}
 			}
-=======
-		if (item.getType() != Material.GOLDEN_APPLE)
-			return;
-
-		if (item.getItemMeta().getDisplayName().equalsIgnoreCase("§d§k!!§5Mythique§r§d§k!!§r §f§l» §5Osmanthe Apple")) {
-			e.setCancelled(true);
-			
-			if(!Main.instance.Osmanthe_Apple.contains(p)) {
-				Main.instance.Osmanthe_Apple.add(p);
-				
-				if (item.getAmount() > 1) {
-
-					item.setAmount(item.getAmount() - 1);
-				} else if (item.getAmount() == 1) {
-					item.setAmount(0);
-				}
-
-				p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 7200, 0));
-				p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 300, 1));
-				p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 1200, 1));
-
-				p.setFoodLevel(20);
-				
-				new BukkitRunnable() {
-					
-					
-					@Override
-					public void run() {
-						
-						if (time == 0) {
-							Main.instance.Osmanthe_Apple.remove(p);
-							time = 40;
-							p.sendMessage("§7[§2Exia§bMC§7] §aVous pouvez de nouveau utilisé votre §5Osmanthe Apple");
-							this.cancel();
-						}
-						
-						time--;
-					}
-				}.runTaskTimer(Main.instance, 45, 45);
-				
-			} else {
-				if(time != 0) {
-					p.sendMessage("§7[§2Exia§bMC§7] §aVous Devez attendre encore §2" + time + " §asecondes");
-					return;
-				}
-			}
-			
->>>>>>> master
 		}
 
 	}
@@ -199,7 +138,6 @@ public class Item implements Listener {
 		if (item == null || item.getItemMeta() == null)
 			return;
 
-<<<<<<< HEAD
 		if (action == Action.RIGHT_CLICK_BLOCK) {
 			if (item.getType() == Material.WATER_BUCKET && item.getItemMeta().getDisplayName()
 					.equalsIgnoreCase("§e§k!!§6Légendaire§e§k!!§r §f§l» §6Angelique Osmanthe Water Bucket")) {
@@ -258,18 +196,11 @@ public class Item implements Listener {
 		if (action != Action.RIGHT_CLICK_AIR)
 			return;
 		if (item.getType() == Material.GOLDEN_APPLE) {
-=======
-		if (item.getType() != Material.GOLDEN_APPLE)
-			return;
-
-		if (action == Action.RIGHT_CLICK_AIR) {
->>>>>>> master
 
 			if (item.getItemMeta().getDisplayName()
 					.equalsIgnoreCase("§d§k!!§5Mythique§r§d§k!!§r §f§l» §5Osmanthe Apple")) {
 				if (p.getFoodLevel() > 19) {
 					p.setFoodLevel(19);
-<<<<<<< HEAD
 					return;
 				}
 
@@ -309,16 +240,10 @@ public class Item implements Listener {
 					((Entity) e.getItem()).remove();
 
 					p.getInventory().addItem(it);
-=======
->>>>>>> master
 				}
 			}
 
 		}
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 	}
 
 }

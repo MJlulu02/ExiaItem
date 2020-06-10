@@ -38,7 +38,6 @@ public class Main extends JavaPlugin {
 		ingotM.setDisplayName("§2§k!!§aAtypique§r§2§k!!§r §f§l» §aOsmanthe Ingot");
 		ingotM.setLore(Arrays.asList(" ", "§f§l» §8Ce lingot provient d'une fleur d'Osmanthe"));
 		ingot.setItemMeta(ingotM);
-<<<<<<< HEAD
 		
 		ItemStack apero = new ItemStack(Material.COOKIE, 1);
 		ItemMeta aperoM = apero.getItemMeta();
@@ -69,14 +68,11 @@ public class Main extends JavaPlugin {
 		flowerM.setDisplayName("§7§k!!§fCommun§7§k!!§r §f§l» §fOsmanthe Flower");
 		flowerM.setLore(Arrays.asList(" ", "§f§l» §8Cette Fleur d'Osmanthe sert à craft un lingot d'Osmanthe"));
 		flower.setItemMeta(flowerM);
-=======
->>>>>>> master
 
 		ShapedRecipe Ingot = new ShapedRecipe(ingot);
 
 		Ingot.shape("MBM", "BCB", "MBM");
 
-<<<<<<< HEAD
 		Ingot.setIngredient('B', flower.getData());
 		Ingot.setIngredient('M', Material.DIAMOND_BLOCK);
 		Ingot.setIngredient('C', Material.INK_SACK, (byte) 3);
@@ -106,27 +102,11 @@ public class Main extends JavaPlugin {
 		getServer().addRecipe(Block_Osm);
 		getServer().addRecipe(Ingot);
 		getServer().addRecipe(Apple);
-=======
-		Ingot.setIngredient('B', Material.RED_ROSE, (byte) 1);
-		Ingot.setIngredient('M', Material.DIAMOND_BLOCK);
-		Ingot.setIngredient('C', Material.INK_SACK, (byte) 3);
-
-		ShapedRecipe Block_Osm = new ShapedRecipe(ingot);
-
-		Block_Osm.shape("BBB", "BBB", "BBB");
-
-		Block_Osm.setIngredient('B', Material.CLAY_BRICK);
-
-		getServer().addRecipe(Ingot);
->>>>>>> master
 	}
 
 	
 	public List<Player> Osmanthe_Apple = new ArrayList<Player>();
-<<<<<<< HEAD
 	public List<Player> Gato_Apero = new ArrayList<Player>();
-=======
->>>>>>> master
 	
 	public void onDisable() {
 		System.out.println("[ExiaItem] Disable");
