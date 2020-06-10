@@ -3,7 +3,10 @@ package Plugins.Exia.PluginsManageur;
 import java.util.Arrays;
 
 import org.bukkit.Material;
+<<<<<<< HEAD
 import org.bukkit.enchantments.Enchantment;
+=======
+>>>>>>> master
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,6 +46,7 @@ public class Menu implements Listener {
 				ItemStack apple = new ItemStack(Material.GOLDEN_APPLE, 1);
 				ItemMeta appleM = apple.getItemMeta();
 				appleM.setDisplayName("§d§k!!§5Mythique§r§d§k!!§r §f§l» §5Osmanthe Apple");
+<<<<<<< HEAD
 				appleM.setLore(Arrays.asList(" ", "§6§nCaractéristique de l'item §7:", "§eDonne un effet de Régénération 3,", "§eAbsorption 2", " ","§f§l» §8Miam :)", "§8[ §7Cooldown : 40 secondes §8]"));
 				apple.setItemMeta(appleM);
 				
@@ -84,6 +88,17 @@ public class Menu implements Listener {
 				Main.instance.DiversInventory.setItem(6, ang_buck);
 				Main.instance.DiversInventory.setItem(7, vitre);
 				Main.instance.DiversInventory.setItem(8, right);
+=======
+				appleM.setLore(Arrays.asList(" ","§f§l» §8Miam :)"));
+				apple.setItemMeta(appleM);
+				
+				
+				
+				Main.instance.DiversInventory.setItem(2, ingot);
+				Main.instance.DiversInventory.setItem(3, apple);
+				Main.instance.DiversInventory.setItem(1, vitre);
+				Main.instance.DiversInventory.setItem(7, vitre);
+>>>>>>> master
 				
 				p.openInventory(Main.instance.DiversInventory);
 			}
@@ -94,12 +109,15 @@ public class Menu implements Listener {
 		if (inv.getName().equalsIgnoreCase("§2§l» §aDivers")) {
 			e.setCancelled(true);
 			
+<<<<<<< HEAD
 			if (it.getType() == Material.ARROW && it.getItemMeta().getDisplayName().equalsIgnoreCase("§f§l» §4Retour")) {
 				p.closeInventory();
 				
 				p.openInventory(Main.instance.ItemInventory);
 			}
 			
+=======
+>>>>>>> master
 			if (it.getType() == Material.CLAY_BRICK && it.getItemMeta().getDisplayName().equalsIgnoreCase("§2§k!!§aAtypique§r§2§k!!§r §f§l» §aOsmanthe Ingot")) {
 				p.closeInventory();
 				
@@ -119,12 +137,17 @@ public class Menu implements Listener {
 				ItemStack apple = new ItemStack(Material.GOLDEN_APPLE, 1);
 				ItemMeta appleM = apple.getItemMeta();
 				appleM.setDisplayName("§d§k!!§5Mythique§r§d§k!!§r §f§l» §5Osmanthe Apple");
+<<<<<<< HEAD
 				appleM.setLore(Arrays.asList(" ", "§6§nCaractéristique de l'item §7:", "§eDonne un effet de Régénération 3,", "§eAbsorption 2", " ","§f§l» §8Miam :)", "§8[ §7Cooldown : 40 secondes §8]"));
+=======
+				appleM.setLore(Arrays.asList(" ","§f§l» §8Miam :)"));
+>>>>>>> master
 				apple.setItemMeta(appleM);
 				
 				p.getInventory().addItem(apple);
 			}
 			
+<<<<<<< HEAD
 			if (it.getType() == Material.COOKIE && it.getItemMeta().getDisplayName().equalsIgnoreCase("§e§k!!§6Limiter§e§k!!§r §f§l» §6Gato Apèro")) {
 				p.closeInventory();
 				
@@ -163,6 +186,8 @@ public class Menu implements Listener {
 				
 				p.getInventory().addItem(ang_buck);
 			}
+=======
+>>>>>>> master
 			
 		}
 	}
